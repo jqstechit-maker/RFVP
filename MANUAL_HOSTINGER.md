@@ -21,26 +21,38 @@ Como a Hostinger utiliza servidores baseados em **Apache + PHP + MySQL**, adapta
 
 ## 🛠️ Passo a Passo da Instalação
 
-### Passo 1: Construir o Projeto Localmente
-Em seu computador local, abra o terminal na pasta raiz do projeto e execute os seguintes comandos:
-
-```bash
-# 1. Instalar as dependências do projeto
-npm install
-
-# 2. Compilar e gerar a build de produção otimizada
-npm run build
-```
-
-Este comando criará uma pasta chamada `dist` na raiz do seu projeto. Esta pasta `dist` conterá toda a aplicação pronta para rodar na web, incluindo:
-- Os arquivos estáticos otimizados (HTML, CSS e JS reunidos na pasta `assets`).
-- Seu arquivo PHP utilitário de upload (`upload.php`).
-- Seu arquivo `.htaccess` para roteamento limpo de páginas.
-- Seu arquivo Webhook do pix (`webhook_pix.php`).
+### Opção A: Compilar Automaticamente pelo GitHub Actions (Mais Prático!)
+Se você enviou ou integrou o seu projeto ao **GitHub**, nós configuramos pra você uma automação completa! Sempre que você atualizar o código (fazer um push), o GitHub vai compilar a aplicação e gerar o arquivo ZIP prontinho para você de forma 100% online.
+1. Acesse o seu repositório no **GitHub**.
+2. Clique na aba **Actions** na barra de menu superior.
+3. Você verá o fluxo chamado `Compilar Rifa VIP para Produção (Hostinger)`.
+4. Uma vez que o fluxo terminar de rodar (indicado por um check verde):
+   - Clique na execução correspondente ao seu último envio.
+   - Role a página até o final na seção **Artifacts** (Artefatos) e clique para baixar o arquivo **`plataforma_rifa_pronta`**.
+5. Salve o arquivo ZIP baixado. Ele já contém todos os arquivos React e PHP unificados na estrutura ideal para colocar direto na Hostinger (pule para o **Passo 3**)!
 
 ---
 
-### Passo 2: Compactar os Arquivos para Envio
+### Opção B: Construir o Projeto Localmente
+Se prefere compilar no seu computador antes de subir:
+1. Em seu computador local, abra o terminal na pasta raiz do projeto e execute os seguintes comandos:
+   ```bash
+   # Instalar as dependências do projeto
+   npm install
+
+   # Compilar e gerar a build de produção otimizada
+   npm run build
+   ```
+2. Este comando criará uma pasta chamada `dist` na raiz do seu projeto. A pasta `dist` conterá toda a aplicação pronta para rodar na web, incluindo:
+   - Os arquivos estáticos otimizados (HTML, CSS e JS reunidos na pasta `assets`).
+   - Seu arquivo PHP utilitário de upload (`upload.php`).
+   - Seu arquivo `.htaccess` para roteamento limpo de páginas.
+   - Seu arquivo Webhook do pix (`webhook_pix.php`).
+   - As subpastas do backend PHP (`admin/`, `app/` e `config/`) que o nosso script de pós-processamento copiou automaticamente para lá para que o PHP também funcione em produção!
+
+---
+
+### Passo 2: Compactar os Arquivos para Envio (Caso tenha compilado pela Opção B)
 1. Entre na pasta `dist` gerada em seu computador.
 2. Selecione **todos** os arquivos e pastas de dentro dela (incluindo a pasta `assets`, `public`, `index.html`, `upload.php`, `.htaccess`, etc).
 3. Compacte tudo em um arquivo `.zip` (por exemplo, `site_rifa.zip`). 
