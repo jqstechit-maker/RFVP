@@ -1,0 +1,6 @@
+{
+  "name": "Rifa VIP - Sistema de Rifas",
+  "description": "Sistema completo e moderno de rifas online com painel administrativo, grid de números interativo, simulação de webhook de confirmação automática PIX e exportador do código-fonte completo em PHP MVC + MySQL pronto para produção em cPanel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
